@@ -4,7 +4,7 @@ let handler = async (m, { conn, text }) => {
   let users = (await conn.groupMetadata(m.chat)).participants.map(u => u.jid)
   conn.sendMessage(m.chat, text, MessageType.extendedText, { contextInfo: { mentionedJid: users } })
 }
-handler.help = [,'hidetag'].map(v => 'o' + v + ' [text]')
+handler.help = ['hidetag'].map(v => 'o' + v + ' [text]')
 handler.tags = ['owner']
 handler.command = /^(hidetag)$/i
 handler.owner = true
