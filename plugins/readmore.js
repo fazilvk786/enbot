@@ -6,7 +6,7 @@ let handler = async (m, { conn, text }) => {
 }
 handler.help = ['readmore','spoiler'].map(v => v + ' <text>|<text>')
 handler.tags = ['tools']
-handler.command = /^(spoiler|hidetext|readmore|selengkapnya)$/i
+handler.command = /^(readmore)$/i
 handler.owner = false
 handler.mods = false
 handler.premium = false
