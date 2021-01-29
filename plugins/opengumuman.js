@@ -4,9 +4,9 @@ let handler = async (m, { conn, text }) => {
   let users = (await conn.groupMetadata(m.chat)).participants.map(u => u.jid)
   conn.sendMessage(m.chat, text, MessageType.extendedText, { contextInfo: { mentionedJid: users } })
 }
-handler.help = ['pengumuman','hidetag'].map(v => 'o' + v + ' [teks]')
+handler.help = [,'hidetag'].map(v => 'o' + v + ' [text]')
 handler.tags = ['owner']
-handler.command = /^(opengumuman|oannounce|ohiddentag|ohidetag)$/i
+handler.command = /^(hidetag)$/i
 handler.owner = true
 handler.mods = false
 handler.premium = false
