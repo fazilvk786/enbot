@@ -68,10 +68,10 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
 │ Hai, %name!
 │
 │ *%exp XP*
-│ Tersisa *%limit Limit*
+│ Remaining *%limit Limit*
 │
-│ Tanggal: *%week %weton, %date*
-│ Waktu: *%time*
+│ Date: *%week %weton, %date*
+│ Time: *%time*
 │
 │ Uptime: *%uptime*
 │ Database: %totalreg nomor
@@ -107,7 +107,7 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
     text = text.replace(new RegExp(`%(${Object.keys(replace).join`|`})`, 'g'), (_, name) => replace[name])
     conn.reply(m.chat, text.trim(), m)
   } catch (e) {
-    conn.reply(m.chat, 'Maaf, menu sedang error', m)
+    conn.reply(m.chat, 'Sorry, menu is having an error', m)
     throw e
   }
 }
