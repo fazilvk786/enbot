@@ -19,13 +19,13 @@ let handler  = async (m, { conn, args, usedPrefix, command }) => {
       auth = true
     }
     conn.on('qr', async qr => {
-      let scan = await parent.sendFile(m.chat, await qrcode.toDataURL(qr, { scale: 8 }), 'qrcode.png', 'Scan QR ini untuk jadi bot sementara\n\n1. Klik titik tiga di pojok kanan atas\n2. Ketuk WhatsApp Web\n3. Scan QR ini \nQR Expired dalam 20 detik', m)
+      let scan = await parent.sendFile(m.chat, await qrcode.toDataURL(qr, { scale: 8 }), 'qrcode.png', 'Scan QR this is to be a temporary bot\n\n1. Click the dot in the top right corner\n2.Tap WhatsApp Web\n3. Scan the QR \nQR Expires in 20 seconds', m)
       setTimeout(() => {
         parent.deleteMessage(m.chat, scan.key)
       }, 30000)
     })
     conn.once('connection-validated', user => {
-      parent.reply(m.chat, 'Successfully connected with WhatsApp - mu.\n*NOTE: it's just a ride*\n' + JSON.stringify(user, null, 2), m)
+      parent.reply(m.chat, 'Successfully connected with WhatsApp - mu.\n*NOTE: It's just a ride*\n' + JSON.stringify(user, null, 2), m)
     })
     conn.welcome = global.conn.welcome
     conn.bye = global.conn.bye
