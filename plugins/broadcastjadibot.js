@@ -4,10 +4,10 @@ let handler = async (m, { conn, text }) => {
     for (let id of users) conn.sendMessage(id, text, m.mtype, m.msg.contextInfo ? {
       contextInfo: m.msg.contextInfo
     } : {})
-    conn.reply(m.chat, `_Berhasil mengirim broadcast ke ${users.length} nomor yang jadi bot_`, m)
-  } else conn.reply(m.chat, 'Fitur ini hanya untuk host bot',  m)
+    conn.reply(m.chat, `_Successfully sent broadcast to ${users.length} the number so the bot_`, m)
+  } else conn.reply(m.chat, 'This feature is for bot hosts only',  m)
 }
-handler.help = ['broadcastjadibot','bcbot'].map(v => v + ' <teks>')
+handler.help = ['broadcastjadibot','bcbot'].map(v => v + ' <text>')
 handler.tags = ['host']
 handler.command = /^(broadcast|bc)(jadi)?bot$/i
 handler.owner = true
