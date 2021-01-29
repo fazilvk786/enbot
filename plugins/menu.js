@@ -28,7 +28,6 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
       'main': 'Main',
       'xp': 'Exp & Limit',
       'sticker': 'Sticker',
-      'kerang': 'Kerang Ajaib',
       'quotes': 'Quotes',
       'admin': 'Admin',
       'group': 'Group',
@@ -39,7 +38,6 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
       'jadibot': 'Jadi Bot',
       'owner': 'Owner',
       'host': 'Host',
-      'advanced': 'Advanced',
       'info': 'Info',
       '': 'No Category',
     }
@@ -68,21 +66,17 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
 │ Hai, %name!
 │
 │ *%exp XP*
-│ Remaining *%limit Limit*
 │
-│ Date: *%week %weton, %date*
+│ Date: *%date*
 │ Time: *%time*
 │
 │ Uptime: *%uptime*
-│ Database: %totalreg nomor
-│ Github:
-│ %github
 ╰────
 %readmore`
     let header = conn.menu.header || '╭─「 %category 」'
     let body   = conn.menu.body   || '│ • %cmd%islimit'
     let footer = conn.menu.footer || '╰────\n'
-    let after  = conn.menu.after  || (conn.user.jid == global.conn.user.jid ? '' : `Powered by https://wa.me/${global.conn.user.jid.split`@`[0]}`) + `\n*%npmname@^%version*\n\`\`\`\%npmdesc\`\`\``
+    let after  = conn.menu.after  || (conn.user.jid == global.conn.user.jid ? '' : `Powered by https://wa.me/${global.conn.user.jid.split`@`[0]}`) + `\n*BotMOl@^%version*\n\`\`\`\@Vai838\`\`\``
     let _text  = before + '\n'
     for (let tag in groups) {
       _text += header.replace(/%category/g, tags[tag]) + '\n'
@@ -111,7 +105,7 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
     throw e
   }
 }
-handler.help = ['menu','help','?']
+handler.help = ['menu','help']
 handler.tags = ['main']
 handler.command = /^(menu|help|\?)$/i
 handler.owner = false
