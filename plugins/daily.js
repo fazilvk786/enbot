@@ -3,9 +3,9 @@ let handler = async (m, { conn }) => {
     conn.reply(m.chat, '+500 XP', m)  
     global.DATABASE._data.users[m.sender].exp += 500
     global.DATABASE._data.users[m.sender].lastclaim = new Date * 1
-  } else conn.reply(m.chat, 'You have claimed daily today', m)
+  } else conn.reply(m.chat, 'You have claimed your daily XP for today', m)
 }
-handler.help = ['daily', 'claim']
+handler.help = ['claim']
 handler.tags = ['xp']
 handler.command = /^(daily|claim)$/i
 handler.owner = false
