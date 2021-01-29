@@ -12,13 +12,13 @@ Mode: ${Object.keys(modes).join(' | ')}
 Contoh penggunaan: ${usedPrefix}math medium
 `.trim(), m)
   let id = m.chat
-  if (id in global.math) return conn.reply(m.chat, 'Masih ada soal belum terjawab di chat ini', global.math[id][0])
+  if (id in global.math) return conn.reply(m.chat, 'Still that question is not answered in the chat', global.math[id][0])
   let math = genMath(mode)
   global.math[id] = [
-    await conn.reply(m.chat, `Berapa hasil dari *${math.str}*?\n\nTimeout: ${(math.time / 1000).toFixed(2)} detik\nBonus Jawaban Benar: ${math.bonus} XP`, m),
+    await conn.reply(m.chat, `How many results from *${math.str}*?\n\nTimeout: ${(math.time / 1000).toFixed(2)} second\nBonus Correct answer: ${math.bonus} XP`, m),
     math, 4,
     setTimeout(() => {
-      if (global.math[id]) conn.reply(m.chat, `Waktu habis!\nJawabannya adalah ${math.result}`, global.math[id][0])
+      if (global.math[id]) conn.reply(m.chat, `Time out!\nThe answer is  ${math.result}`, global.math[id][0])
       delete global.math[id]
     }, math.time)
   ]
