@@ -19,7 +19,7 @@ let handler  = async (m, { conn, command, text }) => {
     }
   }
 }
-handler.help = ['', 'before','header','body','footer','after'].map(v => 'setmenu' + v + ' <teks>')
+handler.help = ['', 'before','header','body','footer','after'].map(v => 'setmenu' + v + ' <text>')
 handler.tags = ['owner']
 handler.command = /^set(menu|help|\?)(before|header|body|footer|after)?$/i
 handler.owner = true
@@ -56,7 +56,7 @@ Universal:
 Section of Menu Header & Footer:
 %category (category)
 
-Bagian Menu Body:
+Sub Menu Body:
 %cmd (Command)
 %islimit (if the command is in limit)
 `.trim()
