@@ -10,17 +10,17 @@ let handler = async (m, { usedPrefix, command, text, args }) => {
       return m.reply(`
 List option: welcome
 
-Contoh:
+Content:
 ${usedPrefix}enable welcome
 ${usedPrefix}disable welcome
 `.trim())
   }
   m.reply(`
-*${type}* berhasil di *${isEnable ? 'nyala' : 'mati'}kan* untuk chat ini
+*${type}* succeeded in turning*${isEnable ? 'on' : 'off'}* for this chat
 `.trim())
 }
 handler.help = ['en', 'dis'].map(v => v + 'able <option>')
-handler.tags = ['group', 'owner']
+handler.tags = ['group']
 handler.command = /^((en|dis)able|(tru|fals)e|(turn)?o(n|ff))$/i
 
 module.exports = handler
