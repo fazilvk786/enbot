@@ -3,7 +3,7 @@ let handler  = async (m, { conn, command, text }) => {
   if (type == '') {
     if (text) {
       conn.menu = text
-      conn.reply(m.chat, 'Menu berhasil diatur\n' + info, m)
+      conn.reply(m.chat, 'Menu set up successful\n' + info, m)
     } else {
       conn.menu = {}
       conn.reply(m.chat, 'Menu direset', m)
@@ -12,7 +12,7 @@ let handler  = async (m, { conn, command, text }) => {
     conn.menu = typeof conn.menu == 'object' ? conn.menu : {}
     if (text) {
       conn.menu[type] = text
-      conn.reply(m.chat, 'Menu ' + type + ' berhasil diatur\n' + info, m)
+      conn.reply(m.chat, 'Menu ' + type + ' set up successfull\n' + info, m)
     } else {
       delete conn.menu[type]
       conn.reply(m.chat, 'Menu ' + type + ' direset', m)
@@ -41,22 +41,22 @@ Universal:
 %p (Prefix)
 %exp (Exp)
 %limit (Limit)
-%name (Nama)
-%weton (Weton Hari ini)
-%week (Hari)
-%date (Tanggal)
-%time (Jam)
+%name (Name)
+%weton (Weton today)
+%week (day)
+%date (date)
+%time (time)
 %uptime (Uptime Bot)
-%totalreg (Jumlah User yang ada di database)
+%totalreg (total number of users in the database)
 %npmname
 %npmdesc
 %version
 %github
 
-Bagian Menu Header & Footer:
-%category (Kategori)
+Section of Menu Header & Footer:
+%category (category)
 
 Bagian Menu Body:
 %cmd (Command)
-%islimit (Jika command di limit)
+%islimit (if the command is in limit)
 `.trim()
