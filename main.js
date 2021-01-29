@@ -11,9 +11,9 @@ let util = require('util')
 let WAConnection = simple.WAConnection(_WAConnection)
 
 
-global.owner = ['6281515860089'] // Put your number here
+global.owner = ['917306030148'] // Put your number here
 global.mods = [] // Want some help?
-global.prems = [] // Premium user has unlimited limit
+global.prems = [917306030148] // Premium user has unlimited limit
 
 
 global.timestamp = {
@@ -176,7 +176,7 @@ conn.handler = async function (m) {
         if (xp > 99) m.reply('Ngecit -_-') // Hehehe
         else m.exp += xp
         if (!isPrems && global.DATABASE._data.users[m.sender].limit < m.limit * 1 && plugin.limit) {
-          this.reply(m.chat, `Limit anda habis, silahkan beli melalui *${usedPrefix}buy*`, m)
+          this.reply(m.chat, `Your limit is up,get more *${usedPrefix}buy*`, m)
           continue // Limit habis
         }
         try {
@@ -261,7 +261,7 @@ conn.onLeave = async function  ({ m, participants }) {
 }
 
 conn.onDelete = async function (m) {
-  await this.reply(m.key.remoteJid, `Terdeteksi @${m.participant.split`@`[0]} telah menghapus pesan`, m.message, {
+  await this.reply(m.key.remoteJid, `Detected @${m.participant.split`@`[0]} has deleted the message`, m.message, {
     contextInfo: {
       mentionedJid: [m.participant]
     }
@@ -283,14 +283,14 @@ conn.on('close', async () => {
 
 global.dfail = (type, m, conn) => {
   let msg = {
-    rowner: 'Perintag ini hanya dapat digunakan oleh _*OWWNER!1!1!*_',
-    owner: 'Perintah ini hanya dapat digunakan oleh _*Owner Bot*_!',
-    mods: 'Perintah ini hanya dapat digunakan oleh _*Moderator*_ !',
-    premium: 'Perintah ini hanya untuk member _*Premium*_ !',
-    group: 'Perintah ini hanya dapat digunakan di grup!',
-    private: 'Perintah ini hanya dapat digunakan di Chat Pribadi!',
-    admin: 'Perintah ini hanya untuk *Admin* grup!',
-    botAdmin: 'Jadikan bot sebagai *Admin* untuk menggunakan perintah ini!'
+    rowner: 'This command can only be used by _*OWWNER!1!1!*_',
+    owner: 'This command can only be used by _*Owner Bot*_!',
+    mods: 'This command can only be used by _*Moderator*_ !',
+    premium: 'This command is for members only _*Premium*_ !',
+    group: 'This command can only be used in groups!',
+    private: 'This command can only be used in Private Chats!',
+    admin: 'This command is for *Admin* group!',
+    botAdmin: 'Make bots as *Admin* to use this command!'
   }[type]
   if (msg) conn.reply(m.chat, msg, m)
 }
