@@ -4,7 +4,7 @@ let handler = async (m, { conn, command, args }) => {
   if (!args[0]) return conn.reply(m.chat, 'No url', m)
   let url = /https?:\/\//.test(args[0]) ? args[0] : 'https://' + args[0]
   let ss = await (await fetch('https://nurutomo.herokuapp.com/api/ssweb?delay=1000&url=' + encodeURIComponent(url) + '&full=' + full)).buffer()
-  conn.sendFile(m.chat, ss, 'screenshot.png', url, m)
+  conn.sendFile(m.chat, ss, 'screenshot.jpeg', url, m)
 }
 handler.help = ['ss', 'ssf'].map(v => v + ' <url>')
 handler.tags = ['internet']
