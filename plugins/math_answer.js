@@ -3,7 +3,7 @@ let handler = async (m, { conn }) => {
   let id = m.chat
   if (!m.quoted) return
   if (m.quoted.sender != conn.user.jid) return
-  if (!/^Berapa hasil dari/i.test(m.quoted.text)) return
+  if (!/^Number of results from/i.test(m.quoted.text)) return
   if (!(m.chat in global.math)) return conn.reply(m.chat, 'That question has ended', m)
   if (m.quoted.id == global.math[id][0].id) {
   let math = global.math[id][1]
@@ -14,7 +14,7 @@ let handler = async (m, { conn }) => {
     delete global.math[id]
   } else {
     if (--global.math[id][2] == 0) {
-      conn.reply(m.chat, `*Chance over!*\nJawaban: *${math.result}*`, m)
+      conn.reply(m.chat, `*Chance over!*\nAnswer: *${math.result}*`, m)
       clearTimeout(global.math[id][3])
       delete global.math[id]
     } else conn.reply(m.chat, `*Wrong Answer!*\nStill available ${global.math[id][2]} chance`, m)
