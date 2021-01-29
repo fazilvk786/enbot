@@ -51,12 +51,12 @@ let handler  = async (m, { conn, args }) => {
   ])
   .on('error', e => conn.reply(m.chat, util.format(e), m))
   .on('exit', () => {
-    conn.sendFile(m.chat, outputPath, 'nulis.jpg', 'Hati² ketahuan:v', m)
+    conn.sendFile(m.chat, outputPath, 'nulis.jpg', 'Heart felt:v', m)
   })
 }
-handler.help = ['n'].map(v => v + 'ulis <teks>')
+handler.help = ['w'].map(v => v + 'rite <text>')
 handler.tags = ['tools']
-handler.command = /^nulis$/i
+handler.command = /^write$/i
 handler.owner = false
 handler.mods = false
 handler.premium = false
