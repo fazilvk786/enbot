@@ -25,7 +25,7 @@ let handler  = async (m, { conn, args, usedPrefix, command }) => {
       }, 30000)
     })
     conn.once('connection-validated', user => {
-      parent.reply(m.chat, 'Berhasil tersambung dengan WhatsApp - mu.\n*NOTE: Ini cuma numpang*\n' + JSON.stringify(user, null, 2), m)
+      parent.reply(m.chat, 'Successfully connected with WhatsApp - mu.\n*NOTE: it's just a ride*\n' + JSON.stringify(user, null, 2), m)
     })
     conn.welcome = global.conn.welcome
     conn.bye = global.conn.bye
@@ -35,7 +35,7 @@ let handler  = async (m, { conn, args, usedPrefix, command }) => {
     conn.regenerateQRIntervalMs = null
     conn.connect().then(async ({user}) => {
       if (auth) return
-      await parent.sendMessage(user.jid, `Kamu bisa login tanpa qr dengan pesan dibawah ini. untuk mendapatkan kode lengkapnya, silahkan kirim *${usedPrefix}getcode* untuk mendapatkan kode yang akurat`, MessageType.extendedText)
+      await parent.sendMessage(user.jid, `You can login without QR with the message below to get the complete code,please send *${usedPrefix}getcode* untuk mendapatkan kode yang akurat`, MessageType.extendedText)
       parent.sendMessage(user.jid, `${usedPrefix + command} ${Buffer.from(JSON.stringify(conn.base64EncodedAuthInfo())).toString('base64')}`, MessageType.extendedText)
     })
     setTimeout(() => {
@@ -45,7 +45,7 @@ let handler  = async (m, { conn, args, usedPrefix, command }) => {
     }, 60000)
     conn.on('close', conn.logger.info)
     global.conns.push(conn)
-  } else throw 'Tidak bisa membuat bot didalam bot!\n\nhttps://wa.me/' + global.conn.user.jid.split`@`[0] + '?text=.jadibot'
+  } else throw 'cannot create a bot within the bot!\n\nhttps://wa.me/' + global.conn.user.jid.split`@`[0] + '?text=.jadibot'
 }
 handler.help = ['jadibot']
 handler.tags = ['jadibot']
