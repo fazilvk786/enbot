@@ -1,10 +1,10 @@
 let handler = async m => m.reply(`
-╭─「 Donasi • Pulsa 」
-│ • Indosat Ooredoo [081515860089]
-│ • Telkomsel [081334177340]
+╭─「 • Owner • 」
+│ • @Vai838 [917306030148]
+│ • @Narutumo
 ╰────
 `.trim()) // Tambah sendiri kalo mau
-handler.help = ['donasi']
+handler.help = ['owner']
 handler.tags = ['info']
 handler.command = /^dona(te|si)$/i
 
