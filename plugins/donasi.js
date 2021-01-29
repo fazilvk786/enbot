@@ -1,5 +1,5 @@
 let handler = async m => m.reply(`
-╭─「 • Owner • 」
+╭─「 • Created by • 」
 │ • @Vai838 [917306030148]
 │ • @Narutumo
 ╰────
