@@ -6,6 +6,6 @@ let handler = async m => m.reply(`
 `.trim()) // Tambah sendiri kalo mau
 handler.help = ['owner']
 handler.tags = ['info']
-handler.command = /^dona(te|si)$/i
+handler.command = /^owner$/i
 
 module.exports = handler
