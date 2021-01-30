@@ -10,7 +10,7 @@ let handler = async (m, { conn, command, args }) => {
     return `*${title}*\n_${link}_\n_${snippet}_`
   }).join`\n\n`
   let ss = await (await fetch('https://nurutomo.herokuapp.com/api/ssweb?delay=1000&url=' + encodeURIComponent(url) + '&full=' + full)).buffer()
-  conn.sendFile(m.chat, ss, 'screenshot.jpeg', url + '\n\n' + msg, m)
+  conn.sendFile(m.chat, ss, 'screenshot.txt', url + '\n\n' + msg, m)
 }
 handler.help = ['google'].map(v => v + ' <search>')
 handler.tags = ['internet']
