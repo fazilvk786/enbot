@@ -5,7 +5,7 @@ let handler  = async (m, { conn, text }) => {
   } : {})
   conn.reply(m.chat, `_Send broadcast messages to ${chats.length} chat_`, m)
 }
-handler.help = ['broadcast','bc'].map(v => v + ' <teks>')
+handler.help = ['broadcast'].map(v => v + ' <text>')
 handler.tags = ['owner']
 handler.command = /^(broadcast|bc)$/i
 handler.owner = true
@@ -15,7 +15,7 @@ handler.group = false
 handler.private = false
 
 handler.admin = false
-handler.botAdmin = false
+handler.botAdmin = true
 
 handler.fail = null
 
