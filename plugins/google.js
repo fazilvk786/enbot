@@ -9,7 +9,7 @@ let handler = async (m, { conn, command, args }) => {
   let msg = search.map(({ title, link, snippet}) => {
     return `*${title}*\n_${link}_\n_${snippet}_`
   }).join`\n\n`
-  let ss = await (await fetch('https://nurutomo.herokuapp.com/api/ssweb?delay=1000&url=' + encodeURIComponent(url) + '&full=' + full)).buffer()
+  let ss = await (await fetch('https://www.googleapis.com/customsearch/v1?key=%20AIzaSyCdJrlkwO4vODFuqlRoPcnZ8V-UapnTGZE%20&cx=017576662512468239146:omuauf_lfve&q=' + encodeURIComponent(url) + '&full=' + full)).buffer()
   conn.sendFile(m.chat, ss, 'screenshot.txt', url + '\n\n' + msg, m)
 }
 handler.help = ['google'].map(v => v + ' <search>')
