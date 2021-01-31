@@ -1,6 +1,6 @@
 let handler = async m => m.reply(`
 ╭─「 • Created by • 」
-│ • @Vai838 [917306030148]
+│ • @Vai838 
 │ • @Narutumo
 ╰────
 `.trim()) // Tambah sendiri kalo mau
