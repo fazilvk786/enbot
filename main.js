@@ -13,7 +13,7 @@ let WAConnection = simple.WAConnection(_WAConnection)
 
 global.owner = ['917306030148'] // Put your number here
 global.mods = [] // Want some help?
-global.prems = [917306030148] // Premium user has unlimited limit
+global.prems = [] // Premium user has unlimited limit
 
 
 global.timestamp = {
